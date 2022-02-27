@@ -13,9 +13,13 @@ function generatePassword () {
 
   //Ask user to pick a password length
   var pwLength = window.prompt("Please pick a password length of at least 8 characters and no more than 128 characters (Enter a number between 8 - 128)");
+  if (pwLength === null) {
+    window.alert ("Goodbye!");
+    return password;
+  }
 
   //Validate user input
-  if (pwLength === "" || pwLength === null || pwLength < 8 || pwLength > 128 || isNaN(pwLength) === true) {
+  if (pwLength === "" || pwLength < 8 || pwLength > 128 || isNaN(pwLength) === true) {
     window.alert("You need to provide a valid answer! Please try again.");
     return generatePassword();
   }
@@ -69,7 +73,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
