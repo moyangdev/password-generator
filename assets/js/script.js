@@ -4,21 +4,6 @@ var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numbers = "1234567890";
 var special = "!@#$%^&*_-+=";
 
-// length = prompt("Please pick a password length of at least 8 characters and no more than 128 characters");
-// console.log(length);
-
-// lowercase = window.confirm("Would you like to include lowercase characters?");
-// console.log(lowercase);
-
-// uppercase = window.confirm("Would you like to include uppercase characters?");
-// console.log(uppercase);
-
-// numbers = window.confirm("Would you like to include numbers?");
-// console.log(numbers);
-
-// special = window.confirm("Would you like to include special characters?");
-// console.log(special);
-
 // Run prompts on button click
 function generatePassword () {
 
@@ -27,28 +12,34 @@ function generatePassword () {
   var selection = "";
 
   //Ask user to pick a password length
-  pwLength = prompt("Please pick a password length of at least 8 characters and no more than 128 characters");
+  var pwLength = window.prompt("Please pick a password length of at least 8 characters and no more than 128 characters (Enter a number between 8 - 128)");
+
+  //Validate user input
+  if (pwLength === "" || pwLength === null || pwLength < 8 || pwLength > 128 || isNaN(pwLength) === true) {
+    window.alert("You need to provide a valid answer! Please try again.");
+    return generatePassword();
+  }
 
   //Ask user whether to include lowercase characters
-  var checkLower = window.confirm("Would you like to include lowercase characters?");
+  var checkLower = window.confirm("Would you like to include lowercase characters? (Click 'OK' for Yes, or 'Cancel' for No)");
   if(checkLower) {
     selection = selection + lowercase;
   }
 
   //Ask user whether to include uppercase characters
-  var checkUpper = window.confirm("Would you like to include uppercase characters?");
+  var checkUpper = window.confirm("Would you like to include uppercase characters? (Click 'OK' for Yes, or 'Cancel' for No)");
   if(checkUpper) {
     selection = selection + uppercase;
   }
 
   //Ask user whether to include numbers
-  var checkNumber = window.confirm("Would you like to include numbers?");
+  var checkNumber = window.confirm("Would you like to include numbers? (Click 'OK' for Yes, or 'Cancel' for No)");
   if(checkNumber) {
     selection = selection + numbers;
   }
 
   //Ask user whether to include special characters
-  var checkSpecial = window.confirm("Would you like to include special characters?");
+  var checkSpecial = window.confirm("Would you like to include special characters? (Click 'OK' for Yes, or 'Cancel' for No)");
   if (checkSpecial) {
     selection = selection + special;
   }
