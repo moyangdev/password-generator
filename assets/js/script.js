@@ -32,7 +32,25 @@ function generatePassword () {
   //Ask user whether to include lowercase characters
   var checkLower = window.confirm("Would you like to include lowercase characters?");
   if(checkLower) {
-    selection = lowercase;
+    selection = selection + lowercase;
+  }
+
+  //Ask user whether to include uppercase characters
+  var checkUpper = window.confirm("Would you like to include uppercase characters?");
+  if(checkUpper) {
+    selection = selection + uppercase;
+  }
+
+  //Ask user whether to include numbers
+  var checkNumber = window.confirm("Would you like to include numbers?");
+  if(checkNumber) {
+    selection = selection + numbers;
+  }
+
+  //Ask user whether to include special characters
+  var checkSpecial = window.confirm("Would you like to include special characters?");
+  if (checkSpecial) {
+    selection = selection + special;
   }
 
   //Generate random password based on the password length entered 
@@ -43,32 +61,7 @@ function generatePassword () {
 
   //Populate password
     return password;
-
-  // var checkUpper = window.confirm("Would you like to include uppercase characters?");
-  // if (checkUpper) {
-  //   return uppercase;
-  // }
-  // else {
-  //   window.alert("Invalid Input");
-  // }
-
-  // var checkNumber = window.confirm("Would you like to include numbers?");
-  // if (checkNumber) {
-  //   return numbers;
-  // }
-  // else {
-  //   window.alert("Invalid Input");
-  // }
-
-  // var checkSpecial = window.confirm("Would you like to include special characters?");
-  // if (checkSpecial) {
-  //   return special;
-  // }
-  // else {
-  //   window.alert("Invalid Input");
-  // }
 }
-
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
