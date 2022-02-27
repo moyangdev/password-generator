@@ -22,19 +22,19 @@ function generatePassword () {
 
   //Ask user whether to include lowercase characters
   var checkLower = window.confirm("Would you like to include lowercase characters? (Click 'OK' for Yes, or 'Cancel' for No)");
-  if(checkLower) {
+  if (checkLower) {
     selection = selection + lowercase;
   }
 
   //Ask user whether to include uppercase characters
   var checkUpper = window.confirm("Would you like to include uppercase characters? (Click 'OK' for Yes, or 'Cancel' for No)");
-  if(checkUpper) {
+  if (checkUpper) {
     selection = selection + uppercase;
   }
 
-  //Ask user whether to include numbers
-  var checkNumber = window.confirm("Would you like to include numbers? (Click 'OK' for Yes, or 'Cancel' for No)");
-  if(checkNumber) {
+  //Ask user whether to include numeric characters
+  var checkNumber = window.confirm("Would you like to include numeric characters? (Click 'OK' for Yes, or 'Cancel' for No)");
+  if (checkNumber) {
     selection = selection + numbers;
   }
 
@@ -42,6 +42,12 @@ function generatePassword () {
   var checkSpecial = window.confirm("Would you like to include special characters? (Click 'OK' for Yes, or 'Cancel' for No)");
   if (checkSpecial) {
     selection = selection + special;
+  }
+
+  //Show alert if user does not select any characters
+  if (selection === "" || selection === null) {
+    alert("You have not included any characters. Please try again.");
+    return password;
   }
 
   //Generate random password based on the password length entered 
