@@ -1,12 +1,8 @@
-// Assignment code here
-
-//Define variables for user input
-var length = "";
+//Define variables
 var lowercase = "abcdefghijklmnopqrstuvwxyz";
 var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numbers = "1234567890";
 var special = "!@#$%^&*_-+=";
-
 
 // length = prompt("Please pick a password length of at least 8 characters and no more than 128 characters");
 // console.log(length);
@@ -23,61 +19,54 @@ var special = "!@#$%^&*_-+=";
 // special = window.confirm("Would you like to include special characters?");
 // console.log(special);
 
-
-// function to generate a random numeric value
-// var randomNumber = function(min, max) {
-//   var value = Math.floor(Math.random() * (max - min + 1) + min);
-
-//   return value;
-// };
-
-// const generatePassword = (length, characters) => {
-//   let password = "";
-//   for (let i = 0; i < length; i++) {
-//     password += characters.charAt(
-//       Math.floor(Math.random() * characters.length)
-//     );
-//   }
-//   return password;
-// };
-
 // Run prompts on button click
 function generatePassword () {
-  
-  length = prompt("Please pick a password length of at least 8 characters and no more than 128 characters");
-  console.log(length);
 
+  //Reset old password and selection
+  var password = "";
+  var selection = "";
+
+  //Ask user to pick a password length
+  pwLength = prompt("Please pick a password length of at least 8 characters and no more than 128 characters");
+
+  //Ask user whether to include lowercase characters
   var checkLower = window.confirm("Would you like to include lowercase characters?");
-  if (checkLower) {
-    return lowercase;
-  }
-  else {
-    window.alert("Invalid Input");
+  if(checkLower) {
+    selection = lowercase;
   }
 
-  var checkUpper = window.confirm("Would you like to include uppercase characters?");
-  if (checkUpper) {
-    return uppercase;
-  }
-  else {
-    window.alert("Invalid Input");
-  }
+  //Generate random password based on the password length entered 
+    for (i = 0; i < pwLength; i ++) {
+    randomChar = selection[Math.floor(Math.random()*selection.length)];
+    password = password + randomChar;
+    }
 
-  var checkNumber = window.confirm("Would you like to include numbers?");
-  if (checkNumber) {
-    return numbers;
-  }
-  else {
-    window.alert("Invalid Input");
-  }
+  //Populate password
+    return password;
 
-  var checkSpecial = window.confirm("Would you like to include special characters?");
-  if (checkSpecial) {
-    return special;
-  }
-  else {
-    window.alert("Invalid Input");
-  }
+  // var checkUpper = window.confirm("Would you like to include uppercase characters?");
+  // if (checkUpper) {
+  //   return uppercase;
+  // }
+  // else {
+  //   window.alert("Invalid Input");
+  // }
+
+  // var checkNumber = window.confirm("Would you like to include numbers?");
+  // if (checkNumber) {
+  //   return numbers;
+  // }
+  // else {
+  //   window.alert("Invalid Input");
+  // }
+
+  // var checkSpecial = window.confirm("Would you like to include special characters?");
+  // if (checkSpecial) {
+  //   return special;
+  // }
+  // else {
+  //   window.alert("Invalid Input");
+  // }
 }
 
 
