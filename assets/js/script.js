@@ -2,7 +2,7 @@
 var lowercase = "abcdefghijklmnopqrstuvwxyz";
 var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numbers = "1234567890";
-var special = "!@#$%^&*_-+=";
+var special = "!#$%&'()*+,-./:;<=>?@][^_`{|}~";
 
 // Run prompts on button click
 function generatePassword () {
